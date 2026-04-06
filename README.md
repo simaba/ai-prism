@@ -3,7 +3,7 @@
 > A curated list of frameworks, tools, regulations, papers, and resources for
 > responsible and trustworthy AI deployment in regulated industries.
 
-Maintained by [Sima Bagheri](https://github.com/simaba) · [LinkedIn](https://www.linkedin.com/in/simabagheri) · [Medium](https://medium.com/@simabagheri)
+Maintained by [Sima Bagheri](https://github.com/simaba) · [LinkedIn](https://www.linkedin.com/in/simaba/) · [Medium](https://medium.com/@simabagheri)
 
 **Focus areas:** Enterprise AI governance · LLM deployment safety · Risk management · Regulatory compliance (NIST AI RMF, EU AI Act, ISO 42001) · Release readiness · Incident response
 
