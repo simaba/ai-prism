@@ -1,9 +1,10 @@
-# Awesome AI Governance [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# PRISM — AI Governance Resource Hub
 
-> A curated list of frameworks, tools, regulations, papers, and resources for
+> Practical Resources for Intelligent Systems Management — a curated collection
+> of frameworks, tools, regulations, papers, and open-source projects for
 > responsible and trustworthy AI deployment in regulated industries.
 
-Maintained by [Sima Bagheri](https://github.com/simaba) · [LinkedIn](https://www.linkedin.com/in/simaba/) · [Medium](https://medium.com/@simabagheri)
+Maintained by [Sima Bagheri](https://github.com/simaba) · [LinkedIn](https://www.linkedin.com/in/simaba/) · [Medium](https://medium.com/@bagheri.sima)
 
 **Focus areas:** Enterprise AI governance · LLM deployment safety · Risk management · Regulatory compliance (NIST AI RMF, EU AI Act, ISO 42001) · Release readiness · Incident response
 
@@ -148,12 +149,14 @@ Frameworks I have built for AI governance and release readiness in regulated ind
 
 | Repository | Description | Stars |
 |---|---|---|
-| [enterprise-ai-governance-playbook](https://github.com/simaba/enterprise-ai-governance-playbook) | End-to-end AI governance playbook aligned with NIST AI RMF | ![stars](https://img.shields.io/github/stars/simaba/enterprise-ai-governance-playbook?style=social) |
-| [ai-release-readiness-checklist](https://github.com/simaba/ai-release-readiness-checklist) | YAML-based release gate checklist for LLM/ML deployments | ![stars](https://img.shields.io/github/stars/simaba/ai-release-readiness-checklist?style=social) |
-| [ai-risk-taxonomy](https://github.com/simaba/ai-risk-taxonomy) | Structured taxonomy of AI risks mapped to NIST AI RMF | ![stars](https://img.shields.io/github/stars/simaba/ai-risk-taxonomy?style=social) |
-| [llm-governance-readiness-framework](https://github.com/simaba/llm-governance-readiness-framework) | LLM-specific governance maturity framework | ![stars](https://img.shields.io/github/stars/simaba/llm-governance-readiness-framework?style=social) |
-| [regulated-ai-use-case-library](https://github.com/simaba/regulated-ai-use-case-library) | AI use cases with governance context for regulated industries | ![stars](https://img.shields.io/github/stars/simaba/regulated-ai-use-case-library?style=social) |
-| [nist-ai-rmf-implementation-guide](https://github.com/simaba/nist-ai-rmf-implementation-guide) | Practitioner guide to implementing NIST AI RMF | ![stars](https://img.shields.io/github/stars/simaba/nist-ai-rmf-implementation-guide?style=social) |
+| [governance-playbook](https://github.com/simaba/governance-playbook) | End-to-end AI governance playbook aligned with NIST AI RMF | ![stars](https://img.shields.io/github/stars/simaba/governance-playbook?style=social) |
+| [release-checklist](https://github.com/simaba/release-checklist) | Risk-tiered release gate checklist for LLM/ML deployments with `airc` CLI | ![stars](https://img.shields.io/github/stars/simaba/release-checklist?style=social) |
+| [nist-rmf-guide](https://github.com/simaba/nist-rmf-guide) | Practitioner guide to implementing NIST AI RMF in regulated industries | ![stars](https://img.shields.io/github/stars/simaba/nist-rmf-guide?style=social) |
+| [release-governance](https://github.com/simaba/release-governance) | 5-stage release lifecycle framework with governance gates | ![stars](https://img.shields.io/github/stars/simaba/release-governance?style=social) |
+| [accountability-patterns](https://github.com/simaba/accountability-patterns) | Design patterns for human accountability in AI systems | ![stars](https://img.shields.io/github/stars/simaba/accountability-patterns?style=social) |
+| [regulated-ai](https://github.com/simaba/regulated-ai) | Starter kit for deploying AI in regulated industries (healthcare, finance, insurance) | ![stars](https://img.shields.io/github/stars/simaba/regulated-ai?style=social) |
+| [multi-agent-governance](https://github.com/simaba/multi-agent-governance) | Governance framework for multi-agent AI systems | ![stars](https://img.shields.io/github/stars/simaba/multi-agent-governance?style=social) |
+| [agent-eval](https://github.com/simaba/agent-eval) | Evaluation framework for AI agents across correctness, safety, and reliability | ![stars](https://img.shields.io/github/stars/simaba/agent-eval?style=social) |
 
 ---
 
