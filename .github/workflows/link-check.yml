@@ -1,0 +1,32 @@
+name: Link Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'CURATION.md'
+      - '.github/workflows/link-check.yml'
+  schedule:
+    - cron: '0 8 1 * *'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links in Markdown files
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --max-concurrency 4
+            --retry-wait-time 2
+            --max-retries 2
+            README.md CURATION.md
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
