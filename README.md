@@ -10,6 +10,22 @@ Maintained by [Sima Bagheri](https://github.com/simaba) · [LinkedIn](https://ww
 
 ---
 
+## Curation standard
+
+This is a curated resource hub, not a link dump. Resources should be practical, credible, and relevant to AI governance, evaluation, risk management, release readiness, or incident response.
+
+See [`CURATION.md`](CURATION.md) for:
+
+- inclusion and exclusion criteria
+- source preference rules
+- freshness review cadence
+- description-quality standards
+- contribution review checklist
+
+A scheduled link-check workflow also runs monthly to reduce link rot.
+
+---
+
 ## Contents
 
 - [Regulatory Frameworks](#regulatory-frameworks)
@@ -166,10 +182,11 @@ Contributions are welcome! Please read the [Contributing Guidelines](CONTRIBUTIN
 and open an issue before submitting a PR.
 
 **How to add a resource:**
-1. Verify the resource is publicly accessible and actively maintained
-2. Add it to the appropriate section with a one-line description
-3. For GitHub repos: add a stars badge using `![stars](https://img.shields.io/github/stars/owner/repo?style=social)`
-4. Open a PR with the title `Add: [Resource Name]`
+1. Read the [Curation Policy](CURATION.md)
+2. Verify the resource is publicly accessible and actively maintained
+3. Add it to the appropriate section with a specific one-line description
+4. For GitHub repos: add a stars badge using `![stars](https://img.shields.io/github/stars/owner/repo?style=social)`
+5. Open a PR with the title `Add: [Resource Name]`
 
 ---
 
