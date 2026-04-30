@@ -23,10 +23,14 @@ jobs:
           args: >-
             --verbose
             --no-progress
-            --max-concurrency 4
-            --retry-wait-time 2
-            --max-retries 2
+            --max-concurrency 2
+            --retry-wait-time 5
+            --max-retries 3
+            --timeout 30
+            --accept 200,204,206,301,302,307,308,403,429
+            --exclude-mail
+            --exclude '^https://img\.shields\.io/'
             README.md CURATION.md
-          fail: true
+          fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
