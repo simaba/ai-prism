@@ -7,6 +7,8 @@ on:
     paths:
       - 'README.md'
       - 'CURATION.md'
+      - 'REVIEW_STATUS.md'
+      - '.lycheeignore'
       - '.github/workflows/link-check.yml'
   schedule:
     - cron: '0 8 1 * *'
@@ -30,7 +32,8 @@ jobs:
             --accept 200,204,206,301,302,307,308,403,429
             --exclude-mail
             --exclude '^https://img\.shields\.io/'
-            README.md CURATION.md
-          fail: false
+            --exclude-file .lycheeignore
+            README.md CURATION.md REVIEW_STATUS.md
+          fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
