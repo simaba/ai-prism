@@ -1,0 +1,3 @@
+# Keep exceptions narrow and time-bound.
+# Add a URL pattern only when a healthy primary source is consistently unreachable
+# from GitHub Actions and the exception has been manually reviewed.
