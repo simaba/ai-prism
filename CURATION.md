@@ -46,6 +46,8 @@ AI governance and evaluation resources change quickly. Use these review rules:
 | Academic papers | yearly unless superseded |
 | Communities and courses | every 6 months |
 
+Track manual review dates and next review deadlines in [`REVIEW_STATUS.md`](REVIEW_STATUS.md). The scheduled link check verifies URL availability only; it does not validate legal, technical, or editorial currency.
+
 When reviewing a section, check:
 
 - whether the link still works
@@ -80,6 +82,7 @@ Before accepting a new resource, verify:
 - [ ] the description is specific and practical
 - [ ] the category is correct
 - [ ] the resource still fits the repository focus
+- [ ] the relevant review date is updated in `REVIEW_STATUS.md`
 
 ## Maintenance Notes
 
