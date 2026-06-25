@@ -9,6 +9,7 @@ on:
       - 'CURATION.md'
       - 'REVIEW_STATUS.md'
       - '.lycheeignore'
+      - 'scripts/check_links.py'
       - '.github/workflows/link-check.yml'
   schedule:
     - cron: '0 8 1 * *'
@@ -19,6 +20,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create diagnostic link report
+        continue-on-error: true
+        run: >-
+          python scripts/check_links.py
+          README.md CURATION.md REVIEW_STATUS.md
+          --report link-report.json
+
+      - name: Upload diagnostic link report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: link-report.json
+          if-no-files-found: error
+
       - name: Check links in Markdown files
         id: lychee
         continue-on-error: true
@@ -27,8 +43,6 @@ jobs:
           args: >-
             --verbose
             --no-progress
-            --format markdown
-            --output lychee-report.md
             --max-concurrency 2
             --retry-wait-time 5
             --max-retries 3
@@ -39,14 +53,6 @@ jobs:
             --exclude-file .lycheeignore
             README.md CURATION.md REVIEW_STATUS.md
           fail: true
-
-      - name: Upload link-check report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lychee-report
-          path: lychee-report.md
-          if-no-files-found: ignore
 
       - name: Fail on unresolved link errors
         if: steps.lychee.outcome == 'failure'
