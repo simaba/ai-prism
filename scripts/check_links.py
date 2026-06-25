@@ -10,6 +10,7 @@ import argparse
 import json
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Dict, Iterable, List, Set, Tuple
 from urllib.error import HTTPError, URLError
@@ -20,6 +21,7 @@ from urllib.request import Request, urlopen
 MARKDOWN_LINK = re.compile(r'!?(?:\[[^\]]*\])\(([^)\s]+)(?:\s+"[^"]*")?\)')
 HTTP_SUCCESS = set(range(200, 400)) | {403, 429}
 SKIPPED_PREFIXES = ("mailto:", "tel:", "#")
+MAX_WORKERS = 8
 
 
 def _iter_urls(paths: Iterable[Path]) -> Iterable[Tuple[Path, int, str]]:
@@ -36,7 +38,7 @@ def _check_external(url: str) -> Dict[str, object]:
         method="HEAD",
     )
     try:
-        with urlopen(request, timeout=20) as response:
+        with urlopen(request, timeout=12) as response:
             status = response.getcode()
             return {"status": status, "ok": status in HTTP_SUCCESS}
     except HTTPError as exc:
@@ -46,7 +48,7 @@ def _check_external(url: str) -> Dict[str, object]:
                 headers={"User-Agent": "simaba-ai-prism-link-check/1.0"},
             )
             try:
-                with urlopen(get_request, timeout=20) as response:
+                with urlopen(get_request, timeout=12) as response:
                     status = response.getcode()
                     return {"status": status, "ok": status in HTTP_SUCCESS}
             except HTTPError as get_error:
@@ -66,6 +68,21 @@ def _check_local(url: str, source: Path) -> Dict[str, object]:
     return {"status": "local", "ok": path.exists(), "resolved_path": str(path)}
 
 
+def _check_entry(entry: Tuple[Path, int, str]) -> Dict[str, object]:
+    source, line_number, url = entry
+    parsed = urlparse(url)
+    if parsed.scheme in {"http", "https"}:
+        outcome = _check_external(url)
+    else:
+        outcome = _check_local(url, source)
+    return {
+        "source": str(source),
+        "line": line_number,
+        "url": url,
+        **outcome,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Create a diagnostic Markdown link report.")
     parser.add_argument("paths", nargs="+", type=Path)
@@ -73,7 +90,7 @@ def main() -> int:
     args = parser.parse_args()
 
     checked: Set[str] = set()
-    results: List[Dict[str, object]] = []
+    entries: List[Tuple[Path, int, str]] = []
     for source, line_number, url in _iter_urls(args.paths):
         if url.startswith(SKIPPED_PREFIXES) or "img.shields.io" in url:
             continue
@@ -81,20 +98,10 @@ def main() -> int:
         if cache_key in checked:
             continue
         checked.add(cache_key)
+        entries.append((source, line_number, url))
 
-        parsed = urlparse(url)
-        if parsed.scheme in {"http", "https"}:
-            outcome = _check_external(url)
-        else:
-            outcome = _check_local(url, source)
-        results.append(
-            {
-                "source": str(source),
-                "line": line_number,
-                "url": url,
-                **outcome,
-            }
-        )
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        results = list(executor.map(_check_entry, entries))
 
     failures = [result for result in results if not result["ok"]]
     report = {"checked": len(results), "failures": failures, "results": results}
