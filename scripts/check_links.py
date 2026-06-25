@@ -17,7 +17,7 @@ from urllib.parse import unquote, urlparse
 from urllib.request import Request, urlopen
 
 
-MARKDOWN_LINK = re.compile(r"!?(?:\[[^\]]*\])\(([^)\s]+)(?:\s+\"[^"]*\")?\)")
+MARKDOWN_LINK = re.compile(r'!?(?:\[[^\]]*\])\(([^)\s]+)(?:\s+"[^"]*")?\)')
 HTTP_SUCCESS = set(range(200, 400)) | {403, 429}
 SKIPPED_PREFIXES = ("mailto:", "tel:", "#")
 
@@ -30,14 +30,21 @@ def _iter_urls(paths: Iterable[Path]) -> Iterable[Tuple[Path, int, str]]:
 
 
 def _check_external(url: str) -> Dict[str, object]:
-    request = Request(url, headers={"User-Agent": "simaba-ai-prism-link-check/1.0"}, method="HEAD")
+    request = Request(
+        url,
+        headers={"User-Agent": "simaba-ai-prism-link-check/1.0"},
+        method="HEAD",
+    )
     try:
         with urlopen(request, timeout=20) as response:
             status = response.getcode()
             return {"status": status, "ok": status in HTTP_SUCCESS}
     except HTTPError as exc:
         if exc.code == 405:
-            get_request = Request(url, headers={"User-Agent": "simaba-ai-prism-link-check/1.0"})
+            get_request = Request(
+                url,
+                headers={"User-Agent": "simaba-ai-prism-link-check/1.0"},
+            )
             try:
                 with urlopen(get_request, timeout=20) as response:
                     status = response.getcode()
