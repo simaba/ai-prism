@@ -20,14 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create diagnostic link report
+      - name: Create verified link report
+        id: diagnostic
         continue-on-error: true
         run: >-
           python scripts/check_links.py
           README.md CURATION.md REVIEW_STATUS.md
           --report link-report.json
 
-      - name: Upload diagnostic link report
+      - name: Upload verified link report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -35,8 +36,7 @@ jobs:
           path: link-report.json
           if-no-files-found: error
 
-      - name: Check links in Markdown files
-        id: lychee
+      - name: Run secondary link check
         continue-on-error: true
         uses: lycheeverse/lychee-action@v2
         with:
@@ -54,6 +54,6 @@ jobs:
             README.md CURATION.md REVIEW_STATUS.md
           fail: true
 
-      - name: Fail on unresolved link errors
-        if: steps.lychee.outcome == 'failure'
+      - name: Fail on verified unresolved links
+        if: steps.diagnostic.outcome == 'failure'
         run: exit 1
