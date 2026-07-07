@@ -6,13 +6,15 @@ This ledger distinguishes automated link health from manual content freshness. A
 **Review owner:** Repository maintainer  
 **Rule:** Record a dated content review only after checking the linked primary source and the description in `README.md`.
 
+See [`docs/source-reviews/2026-07-core-authoritative-sources.md`](docs/source-reviews/2026-07-core-authoritative-sources.md) for the scope and limits of the first documented source review.
+
 ## Regulatory Frameworks
 
 | Section | Last confirmed content review | Next review due | Status |
 |---|---:|---:|---|
-| United States | Not yet recorded | 2026-12-24 | Requires initial manual review |
-| European Union | Not yet recorded | 2026-12-24 | Requires initial manual review |
-| International Standards | Not yet recorded | 2026-12-24 | Requires initial manual review |
+| United States | Not yet recorded | 2026-12-24 | Requires initial manual review of NIST and OMB sources |
+| European Union | 2026-07-07 | 2026-10-07 | Initial source classification reviewed; legal-timeline interpretation remains out of scope |
+| International Standards | 2026-07-07 | 2026-10-07 | Initial ISO/OECD source and description review completed; IEEE and ISO/IEC 23894 remain pending |
 
 ## Other active resources
 
@@ -21,6 +23,8 @@ This ledger distinguishes automated link health from manual content freshness. A
 | Open-source tools and platforms | Not yet recorded | 2026-09-24 | Requires initial manual review |
 | Benchmarks and evaluation frameworks | Not yet recorded | 2026-09-24 | Requires initial manual review |
 | Communities and courses | Not yet recorded | 2026-12-24 | Requires initial manual review |
+| LLM security guidance | 2026-07-07 | 2026-10-07 | OWASP source reviewed; README destination needs a targeted link refresh |
+| Adversarial-AI knowledge bases | 2026-07-07 | 2026-10-07 | MITRE ATLAS source classification reviewed; technique coverage review remains pending |
 
 ## Update procedure
 
