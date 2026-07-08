@@ -12,7 +12,7 @@ See [`docs/source-reviews/2026-07-core-authoritative-sources.md`](docs/source-re
 
 | Section | Last confirmed content review | Next review due | Status |
 |---|---:|---:|---|
-| United States | Not yet recorded | 2026-12-24 | Requires initial manual review of NIST and OMB sources |
+| United States | 2026-07-07 | 2026-10-07 | Initial NIST AI hub source classification reviewed; OMB source remains pending |
 | European Union | 2026-07-07 | 2026-10-07 | Initial source classification reviewed; legal-timeline interpretation remains out of scope |
 | International Standards | 2026-07-07 | 2026-10-07 | Initial ISO/OECD source and description review completed; IEEE and ISO/IEC 23894 remain pending |
 
@@ -23,7 +23,7 @@ See [`docs/source-reviews/2026-07-core-authoritative-sources.md`](docs/source-re
 | Open-source tools and platforms | Not yet recorded | 2026-09-24 | Requires initial manual review |
 | Benchmarks and evaluation frameworks | Not yet recorded | 2026-09-24 | Requires initial manual review |
 | Communities and courses | Not yet recorded | 2026-12-24 | Requires initial manual review |
-| LLM security guidance | 2026-07-07 | 2026-10-07 | OWASP source reviewed; README destination needs a targeted link refresh |
+| LLM security guidance | 2026-07-07 | 2026-10-07 | OWASP source reviewed and README destination refreshed to the current GenAI Security Project page |
 | Adversarial-AI knowledge bases | 2026-07-07 | 2026-10-07 | MITRE ATLAS source classification reviewed; technique coverage review remains pending |
 
 ## Update procedure
