@@ -47,7 +47,7 @@ A blocking link-check workflow runs on pull requests and monthly. `REVIEW_STATUS
 ### United States
 
 - **[NIST AI Risk Management Framework](https://airc.nist.gov/home)** — NIST’s official hub for the voluntary framework organized around Govern, Map, Measure, and Manage.
-- **[NIST AI Safety Institute](https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence)** — Federal AI safety research and standards coordination.
+- **[NIST AI Program and Center for AI Standards and Innovation](https://www.nist.gov/artificial-intelligence)** — NIST’s official AI hub covering AI RMF resources, measurement science, standards, evaluations, and related federal AI programs.
 - **[OMB AI Governance Policy M-24-10](https://www.whitehouse.gov/wp-content/uploads/2024/03/M-24-10-Advancing-Governance-Innovation-and-Risk-Management-for-Agency-Use-of-Artificial-Intelligence.pdf)** — U.S. federal agency governance and risk-management requirements for AI use.
 
 ### European Union
@@ -70,7 +70,7 @@ A blocking link-check workflow runs on pull requests and monthly. `REVIEW_STATUS
 - **[Microsoft Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf)** — Public responsible-AI standard and requirements guide.
 - **[Google PAIR Guidebook](https://pair.withgoogle.com/guidebook/)** — People + AI Research guidebook for human-centered AI design.
 - **[MITRE ATLAS](https://atlas.mitre.org/)** — Knowledge base of AI-specific adversarial tactics and techniques.
-- **[OWASP Top 10 for LLMs](https://owasp.org/www-project-top-10-for-large-language-model-applications/)** — Common security risks in LLM applications.
+- **[OWASP Top 10 for LLMs and GenAI Apps](https://genai.owasp.org/llm-top-10/)** — Current OWASP GenAI Security Project page for LLM and generative-AI application risks and mitigations.
 
 ---
 
